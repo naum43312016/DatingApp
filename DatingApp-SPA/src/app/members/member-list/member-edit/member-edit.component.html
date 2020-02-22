@@ -23,11 +23,11 @@
           </div>
           <div class="">
             <strong>Last Active:</strong>
-            <p>{{user?.lastActive}}</p>
+            <p>{{user?.lastActive | timeago}}</p>
           </div>
           <div class="">
             <strong>Member Since:</strong>
-            <p>{{user?.created}}</p>
+            <p>{{user?.creted | date}}</p>
           </div>
         </div>
 

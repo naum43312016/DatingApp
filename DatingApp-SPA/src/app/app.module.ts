@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { AppComponent } from './app.component';
+import {PaginationModule, ButtonsModule} from 'ngx-bootstrap';
 import { from } from 'rxjs';
 import { NavComponent } from './nav/nav.component';
 import { AuthService } from './_services/auth.service';
@@ -31,12 +32,14 @@ import { MemberEditResolver } from './_resolvers/member-edit-resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { PhotoEditorComponent } from './members/member-list/photo-editor/photo-editor.component';
 import { FileUploadModule } from 'ng2-file-upload';
+import { TimeagoModule, TimeagoIntl, TimeagoFormatter, TimeagoCustomFormatter } from 'ngx-timeago';
 // RECOMMENDED
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 export function tokenGetter(){
    return localStorage.getItem('token');
 }
 
+export class MyIntl extends TimeagoIntl {}
 
 @NgModule({
    declarations: [
@@ -60,9 +63,15 @@ export function tokenGetter(){
       FormsModule,
       ReactiveFormsModule,
       BrowserAnimationsModule,
+      PaginationModule.forRoot(),
       BsDatepickerModule.forRoot(),
       FileUploadModule,
-      BsDropdownModule.forRoot(),
+      ButtonsModule.forRoot(),
+      TimeagoModule.forRoot(),
+      BsDropdownModule.forRoot({
+         intl: { provide: TimeagoIntl, useClass: MyIntl },
+      formatter: { provide: TimeagoFormatter, useClass: TimeagoCustomFormatter },
+      }),
       TabsModule.forRoot(),
       RouterModule.forRoot(appRoutes),
       JwtModule.forRoot({

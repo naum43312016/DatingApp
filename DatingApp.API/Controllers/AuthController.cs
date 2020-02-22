@@ -40,7 +40,7 @@ namespace DatingApp.API.Controllers
             }
 
             var userToCreate = _mapper.Map<User>(userForRegisterDto);
-
+            userToCreate.Creted = DateTime.Now;
             var createdUser = await _repo.Register(userToCreate,userForRegisterDto.Password);
 
 
