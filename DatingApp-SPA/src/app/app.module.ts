@@ -35,6 +35,7 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { TimeagoModule, TimeagoIntl, TimeagoFormatter, TimeagoCustomFormatter } from 'ngx-timeago';
 // RECOMMENDED
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { ListsResolver } from './_resolvers/lists.resolver';
 export function tokenGetter(){
    return localStorage.getItem('token');
 }
@@ -88,6 +89,7 @@ export class MyIntl extends TimeagoIntl {}
       MemberDetailResolver,
       MemberEditResolver,
       PreventUnsavedChanges,
+      ListsResolver,
       MemberListResolver,
       {
          provide: GALLERY_CONFIG,
