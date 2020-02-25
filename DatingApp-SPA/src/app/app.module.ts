@@ -36,6 +36,8 @@ import { TimeagoModule, TimeagoIntl, TimeagoFormatter, TimeagoCustomFormatter } 
 // RECOMMENDED
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ListsResolver } from './_resolvers/lists.resolver';
+import { MessagesResolver } from './_resolvers/messages.resolver';
+import { MemberMessagesComponent } from './members/member-list/member-messages/member-messages.component';
 export function tokenGetter(){
    return localStorage.getItem('token');
 }
@@ -54,7 +56,8 @@ export class MyIntl extends TimeagoIntl {}
       MemberCardComponent,
       MemberDetailComponent,
       MemberEditComponent,
-      PhotoEditorComponent
+      PhotoEditorComponent,
+      MemberMessagesComponent
    ],
    imports: [
       BrowserModule,
@@ -89,6 +92,7 @@ export class MyIntl extends TimeagoIntl {}
       MemberDetailResolver,
       MemberEditResolver,
       PreventUnsavedChanges,
+      MessagesResolver,
       ListsResolver,
       MemberListResolver,
       {

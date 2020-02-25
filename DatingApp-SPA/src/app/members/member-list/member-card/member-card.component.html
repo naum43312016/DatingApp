@@ -14,7 +14,7 @@
       </button>
     </li>
     <li class="list-inline-item">
-      <button class="btn btn-primary btn-size">
+      <button class="btn btn-primary btn-size" [routerLink]="['/members/',user.id]" [queryParams]="{tab:3}" routerLinkActive="router-link-active" >
         <i class="fa fa-envelope"></i>
       </button>
     </li>
